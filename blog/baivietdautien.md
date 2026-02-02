@@ -48,6 +48,8 @@ npm -v
 
 ---
 
+##
+
 Slide dưới đây mô tả toàn bộ quy trình xây dựng website,
 từ bước khởi tạo project cho đến khi deploy (triển khai) website lên GitHub Pages.
 
