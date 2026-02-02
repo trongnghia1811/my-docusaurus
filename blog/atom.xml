@@ -89,8 +89,8 @@
 <p>Hành trình từ dòng code trên IDE đến khi OS thực thi là một chặng đường dài đi qua Lexer, Parser, Compiler và PVM. CPython không chỉ là một trình thông dịch, nó là một kiệt tác kỹ thuật kết hợp giữa sự linh hoạt của ngôn ngữ bậc cao và sự chặt chẽ của C.</p>
 <p>Hy vọng bài viết này giúp bạn có cái nhìn sâu sắc hơn về công cụ mình đang dùng hàng ngày. Đừng chỉ code, hãy hiểu code chạy như thế nào!</p>]]></content>
         <author>
-            <name>Admin (Phạm Trọng Nghĩa)</name>
-            <uri>https://github.com/</uri>
+            <name>Phạm Trọng Nghĩa</name>
+            <uri>https://github.com/trongnghia1811</uri>
         </author>
         <category label="Docusaurus" term="Docusaurus"/>
         <category label="blog" term="blog"/>
@@ -155,8 +155,8 @@ từ bước khởi tạo project cho đến khi deploy (triển khai) website l
 </ul>
 <hr>]]></content>
         <author>
-            <name>Admin (Phạm Trọng Nghĩa)</name>
-            <uri>https://github.com/</uri>
+            <name>Phạm Trọng Nghĩa</name>
+            <uri>https://github.com/trongnghia1811</uri>
         </author>
         <category label="Docusaurus" term="Docusaurus"/>
         <category label="blog" term="blog"/>
