@@ -4,10 +4,96 @@
         <title>Blog của Nghĩa Blog</title>
         <link>https://trongnghia1811.github.io/my-docusaurus/blog</link>
         <description>Blog của Nghĩa Blog</description>
-        <lastBuildDate>Thu, 22 Jan 2026 16:33:26 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 02 Feb 2026 11:20:01 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[CPython là gì?]]></title>
+            <link>https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2</link>
+            <guid>https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2</guid>
+            <pubDate>Mon, 02 Feb 2026 11:20:01 GMT</pubDate>
+            <description><![CDATA[Trong bài viết này, mình sẽ chia sẻ về những gì mình biết khi tìm hiểu về CPython.]]></description>
+            <content:encoded><![CDATA[<p>Trong bài viết này, mình sẽ chia sẻ về những gì mình biết khi tìm hiểu về CPython.</p>
+<ul>
+<li class="">CPython là gì?</li>
+<li class="">Hành trình từ dòng code xuống IDE diễn ra thế nào?</li>
+<li class="">Cách CPython quản lý bộ nhớ?</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-cpython-là-gì">1. CPython là gì?<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#1-cpython-l%C3%A0-g%C3%AC" class="hash-link" aria-label="Direct link to 1. CPython là gì?" title="Direct link to 1. CPython là gì?" translate="no">​</a></h2>
+<p>Trước khi đi vào chi tiết, chúng ta cần làm rõ: Python là ngôn ngữ (tập hợp các quy tắc ngữ pháp). Còn CPython là phần mềm thực thi các quy tắc đó (Implementation).</p>
+<p>Khi ta tải Python từ trang chủ về tức là ta đang tải CPython. Nó được viết hoàn toàn bằng C. Nó vừa là Compiler (biên dịch), vừa là Interpreter (thông dịch).</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-hành-trình-của-code-pipeline-từ-a-đến-z">2. Hành trình của Code: Pipeline từ A đến Z<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#2-h%C3%A0nh-tr%C3%ACnh-c%E1%BB%A7a-code-pipeline-t%E1%BB%AB-a-%C4%91%E1%BA%BFn-z" class="hash-link" aria-label="Direct link to 2. Hành trình của Code: Pipeline từ A đến Z" title="Direct link to 2. Hành trình của Code: Pipeline từ A đến Z" translate="no">​</a></h2>
+<p>Cho ví dụ sau:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">a = 10</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">print(a + 5)</span><br></span></code></pre></div></div>
+<p>Để máy tính hiểu được, dòng code này phải trải qua một quá trình nghiêm ngặt gồm 4 giai đoạn:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="giai-đoạn-1-lexing-phân-tích-từ-vựng">Giai đoạn 1: Lexing (Phân tích từ vựng)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#giai-%C4%91o%E1%BA%A1n-1-lexing-ph%C3%A2n-t%C3%ADch-t%E1%BB%AB-v%E1%BB%B1ng" class="hash-link" aria-label="Direct link to Giai đoạn 1: Lexing (Phân tích từ vựng)" title="Direct link to Giai đoạn 1: Lexing (Phân tích từ vựng)" translate="no">​</a></h3>
+<p>CPython đọc file code của ta như một chuỗi văn bản vô nghĩa. Lexer sẽ băm nhỏ chuỗi đó thành các đơn vị có nghĩa gọi là Tokens.</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">a -&gt; NAME</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">= -&gt; OP</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">10 -&gt; NUMBER</span><br></span></code></pre></div></div>
+<p>Lexer của Python rất đặc biệt: nó quan tâm đến cả khoảng trắng (indentation) để sinh ra các token INDENT và DEDENT, giúp định hình khối lệnh.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="giai-đoạn-2-parsing--ast-xây-dựng-cây-cú-pháp-trừu-tượng">Giai đoạn 2: Parsing &amp; AST (Xây dựng cây cú pháp trừu tượng)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#giai-%C4%91o%E1%BA%A1n-2-parsing--ast-x%C3%A2y-d%E1%BB%B1ng-c%C3%A2y-c%C3%BA-ph%C3%A1p-tr%E1%BB%ABu-t%C6%B0%E1%BB%A3ng" class="hash-link" aria-label="Direct link to Giai đoạn 2: Parsing &amp; AST (Xây dựng cây cú pháp trừu tượng)" title="Direct link to Giai đoạn 2: Parsing &amp; AST (Xây dựng cây cú pháp trừu tượng)" translate="no">​</a></h3>
+<p>Từ những token rời rạc trên, Parser sẽ sắp xếp chúng lại theo ngữ pháp và dựng lên một Cây Cú pháp Trừu tượng (Abstract Syntax Tree - AST). Máy tính không đọc từ trái sang phải như người, nó nhìn cấu trúc cây để biết cái nào là cha, cái nào là con, cái nào ưu tiên thực hiện trước (ví dụ: nhân chia trước, cộng trừ sau).</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="giai-đoạn-3-compilation-biên-dịch-sang-bytecode">Giai đoạn 3: Compilation (Biên dịch sang Bytecode)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#giai-%C4%91o%E1%BA%A1n-3-compilation-bi%C3%AAn-d%E1%BB%8Bch-sang-bytecode" class="hash-link" aria-label="Direct link to Giai đoạn 3: Compilation (Biên dịch sang Bytecode)" title="Direct link to Giai đoạn 3: Compilation (Biên dịch sang Bytecode)" translate="no">​</a></h3>
+<p>Đến đây CPython sẽ dịch AST sang một ngôn ngữ trung gian gọi là Bytecode.</p>
+<ul>
+<li class="">
+<p>Bytecode không phải là Mã máy (Machine Code) để CPU chạy trực tiếp.</p>
+</li>
+<li class="">
+<p>Nó là tập lệnh dành riêng cho máy ảo Python.</p>
+</li>
+<li class="">
+<p>Đây là lý do ta thấy file .pyc trong thư mục <strong>pycache</strong>.</p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="giai-đoạn-4-python-virtual-machine-pvm">Giai đoạn 4: Python Virtual Machine (PVM)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#giai-%C4%91o%E1%BA%A1n-4-python-virtual-machine-pvm" class="hash-link" aria-label="Direct link to Giai đoạn 4: Python Virtual Machine (PVM)" title="Direct link to Giai đoạn 4: Python Virtual Machine (PVM)" translate="no">​</a></h3>
+<p>Đây là "hoạt động" chính. PVM là một vòng lặp vô tận viết bằng C. Nó hoạt động dựa trên cơ chế Stack (Ngăn xếp). Với lệnh a = 10:</p>
+<ul>
+<li class="">
+<p>PVM đẩy số 10 vào Stack.</p>
+</li>
+<li class="">
+<p>PVM lấy số 10 ra và cất vào biến a.</p>
+</li>
+</ul>
+<p>PVM đọc từng dòng Bytecode, gọi các hàm C tương ứng, và cuối cùng gọi System Call xuống Hệ điều hành để thực thi phần cứng.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-cách-cpython-quản-lý-bộ-nhớ">3. Cách CPython quản lý bộ nhớ?<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#3-c%C3%A1ch-cpython-qu%E1%BA%A3n-l%C3%BD-b%E1%BB%99-nh%E1%BB%9B" class="hash-link" aria-label="Direct link to 3. Cách CPython quản lý bộ nhớ?" title="Direct link to 3. Cách CPython quản lý bộ nhớ?" translate="no">​</a></h2>
+<p>CPython quản lí bộ nhớ cực kì tinh vi</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mọi-thứ-đều-là-object-pyobject">Mọi thứ đều là Object (PyObject)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#m%E1%BB%8Di-th%E1%BB%A9-%C4%91%E1%BB%81u-l%C3%A0-object-pyobject" class="hash-link" aria-label="Direct link to Mọi thứ đều là Object (PyObject)" title="Direct link to Mọi thứ đều là Object (PyObject)" translate="no">​</a></h3>
+<p>Trong CPython, số 10 không chỉ là 4 bytes nhị phân. Nó là một struct (cấu trúc) trong C tên là PyObject. Nó chứa rất nhiều metadata:</p>
+<ul>
+<li class="">Nó thuộc kiểu gì (int, str)?</li>
+<li class="">Có bao nhiêu người đang dùng nó (Reference Count)?</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="pymalloc--cơ-chế-cấp-phát">Pymalloc &amp; Cơ chế cấp phát<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#pymalloc--c%C6%A1-ch%E1%BA%BF-c%E1%BA%A5p-ph%C3%A1t" class="hash-link" aria-label="Direct link to Pymalloc &amp; Cơ chế cấp phát" title="Direct link to Pymalloc &amp; Cơ chế cấp phát" translate="no">​</a></h3>
+<p>CPython không gọi malloc (xin RAM từ OS) mỗi khi ta tạo một biến, vì việc đó rất chậm. Thay vào đó, nó dùng Pymalloc:</p>
+<ul>
+<li class="">Nó xin sẵn những vùng đất lớn (Arenas).</li>
+<li class="">Chia nhỏ thành các hồ (Pools).</li>
+<li class="">Khi ta cần, nó "phát" ngay một mảnh nhỏ. Đây là lý do tạo object nhỏ trong Python rất nhanh.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="dọn-rác-garbage-collection">Dọn rác (Garbage Collection)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#d%E1%BB%8Dn-r%C3%A1c-garbage-collection" class="hash-link" aria-label="Direct link to Dọn rác (Garbage Collection)" title="Direct link to Dọn rác (Garbage Collection)" translate="no">​</a></h3>
+<p>Làm sao Python biết khi nào xóa biến để giải phóng RAM?</p>
+<ul>
+<li class="">Reference Counting (Chủ đạo): Cứ ai dùng biến thì đếm +1, không dùng nữa thì -1. Về 0 thì xóa ngay lập tức.</li>
+<li class="">Cyclic GC (Hỗ trợ): Xử lý các ca khó như "Vòng tham chiếu" (A trỏ B, B trỏ A) mà Ref Count bó tay.</li>
+</ul>
+<hr>
+<h2></h2>
+<p>Các bạn có thể tham khảo qua slide dưới đây để hiểu sâu hơn về CPython:</p>
+<ul>
+<li class="">🔗 <a href="https://www.canva.com/design/DAG_3EC7Suw/1LjWwYMgO59FCa64VBrI3w/edit" target="_blank" rel="noopener noreferrer" class="">https://www.canva.com/design/DAG_3EC7Suw/1LjWwYMgO59FCa64VBrI3w/edit</a>
+(Slide sẽ mở ở tab mới để xem đầy đủ và rõ ràng hơn)</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-kết-luận">4. Kết luận<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#4-k%E1%BA%BFt-lu%E1%BA%ADn" class="hash-link" aria-label="Direct link to 4. Kết luận" title="Direct link to 4. Kết luận" translate="no">​</a></h2>
+<p>Hành trình từ dòng code trên IDE đến khi OS thực thi là một chặng đường dài đi qua Lexer, Parser, Compiler và PVM. CPython không chỉ là một trình thông dịch, nó là một kiệt tác kỹ thuật kết hợp giữa sự linh hoạt của ngôn ngữ bậc cao và sự chặt chẽ của C.</p>
+<p>Hy vọng bài viết này giúp bạn có cái nhìn sâu sắc hơn về công cụ mình đang dùng hàng ngày. Đừng chỉ code, hãy hiểu code chạy như thế nào!</p>]]></content:encoded>
+            <category>Docusaurus</category>
+            <category>blog</category>
+            <category>huong-dan</category>
+            <category>lap-trinh</category>
+        </item>
         <item>
             <title><![CDATA[Hướng dẫn tạo Blog cá nhân bằng Docusaurus]]></title>
             <link>https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-dau-tien</link>
@@ -47,6 +133,7 @@
 <p>node -v
 npm -v</p>
 <hr>
+<h2></h2>
 <p>Slide dưới đây mô tả toàn bộ quy trình xây dựng website,
 từ bước khởi tạo project cho đến khi deploy (triển khai) website lên GitHub Pages.</p>
 <p>Xem slide hướng dẫn chi tiết tại đây:</p>
