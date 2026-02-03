@@ -33,29 +33,28 @@
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="giai-đoạn-2-parsing--ast-xây-dựng-cây-cú-pháp-trừu-tượng">Giai đoạn 2: Parsing &amp; AST (Xây dựng cây cú pháp trừu tượng)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#giai-%C4%91o%E1%BA%A1n-2-parsing--ast-x%C3%A2y-d%E1%BB%B1ng-c%C3%A2y-c%C3%BA-ph%C3%A1p-tr%E1%BB%ABu-t%C6%B0%E1%BB%A3ng" class="hash-link" aria-label="Direct link to Giai đoạn 2: Parsing &amp; AST (Xây dựng cây cú pháp trừu tượng)" title="Direct link to Giai đoạn 2: Parsing &amp; AST (Xây dựng cây cú pháp trừu tượng)" translate="no">​</a></h3>
 <p>Từ những token rời rạc trên, Parser sẽ sắp xếp chúng lại theo ngữ pháp và dựng lên một Cây Cú pháp Trừu tượng (Abstract Syntax Tree - AST). Máy tính không đọc từ trái sang phải như người, nó nhìn cấu trúc cây để biết cái nào là cha, cái nào là con, cái nào ưu tiên thực hiện trước (ví dụ: nhân chia trước, cộng trừ sau).</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="giai-đoạn-3-compilation-biên-dịch-sang-bytecode">Giai đoạn 3: Compilation (Biên dịch sang Bytecode)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#giai-%C4%91o%E1%BA%A1n-3-compilation-bi%C3%AAn-d%E1%BB%8Bch-sang-bytecode" class="hash-link" aria-label="Direct link to Giai đoạn 3: Compilation (Biên dịch sang Bytecode)" title="Direct link to Giai đoạn 3: Compilation (Biên dịch sang Bytecode)" translate="no">​</a></h3>
-<p>Đến đây CPython sẽ dịch AST sang một ngôn ngữ trung gian gọi là Bytecode.</p>
+<p>Đến đây, một bước cực kỳ quan trọng diễn ra: CPython bắt buộc phải dịch AST sang một ngôn ngữ trung gian gọi là Bytecode (.pyc).</p>
 <ul>
 <li class="">
-<p>Bytecode không phải là Mã máy (Machine Code) để CPU chạy trực tiếp.</p>
+<p><strong>Lưu ý</strong>: Python không chạy trực tiếp source code (.py) từng dòng một như nhiều người lầm tưởng.</p>
 </li>
 <li class="">
-<p>Nó là tập lệnh dành riêng cho máy ảo Python.</p>
-</li>
-<li class="">
-<p>Đây là lý do ta thấy file .pyc trong thư mục <strong>pycache</strong>.</p>
+<p>Nó luôn phải Compile sang Bytecode trước. Bytecode này không phải là Mã máy (Machine Code) để CPU chạy, mà là tập lệnh dành riêng cho máy ảo Python.</p>
 </li>
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="giai-đoạn-4-python-virtual-machine-pvm">Giai đoạn 4: Python Virtual Machine (PVM)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#giai-%C4%91o%E1%BA%A1n-4-python-virtual-machine-pvm" class="hash-link" aria-label="Direct link to Giai đoạn 4: Python Virtual Machine (PVM)" title="Direct link to Giai đoạn 4: Python Virtual Machine (PVM)" translate="no">​</a></h3>
-<p>Đây là "hoạt động" chính. PVM là một vòng lặp vô tận viết bằng C. Nó hoạt động dựa trên cơ chế Stack (Ngăn xếp). Với lệnh a = 10:</p>
+<p>Đây là nơi chương trình thực sự chạy. PVM là một vòng lặp vô tận, hoạt động như một "CPU ảo".
+Với lệnh a = 10, mô hình bộ nhớ hoạt động khác hẳn với C/Java truyền thống:</p>
 <ul>
 <li class="">
-<p>PVM đẩy số 10 vào Stack.</p>
+<p>Heap Memory (Chứa Object): PVM tạo một object int có giá trị là 10 nằm trên Heap.</p>
 </li>
 <li class="">
-<p>PVM lấy số 10 ra và cất vào biến a.</p>
+<p>Stack Memory (Chứa Reference): PVM đẩy cái tên biến a (reference) vào Stack frame hiện tại và trỏ nó tới địa chỉ của object 10 bên Heap.</p>
 </li>
 </ul>
-<p>PVM đọc từng dòng Bytecode, gọi các hàm C tương ứng, và cuối cùng gọi System Call xuống Hệ điều hành để thực thi phần cứng.</p>
+<p><strong>Khác biệt mấu chốt</strong>: Stack trong Python không chứa "giá trị" (value), nó chỉ chứa các tham chiếu. Mọi thứ trong Python (số, chuỗi, boolean...) đều là Object và nằm trên Heap.
+Sau cùng, PVM đọc từng dòng Bytecode, gọi các hàm C tương ứng để CPU thực thi.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-cách-cpython-quản-lý-bộ-nhớ">3. Cách CPython quản lý bộ nhớ?<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#3-c%C3%A1ch-cpython-qu%E1%BA%A3n-l%C3%BD-b%E1%BB%99-nh%E1%BB%9B" class="hash-link" aria-label="Direct link to 3. Cách CPython quản lý bộ nhớ?" title="Direct link to 3. Cách CPython quản lý bộ nhớ?" translate="no">​</a></h2>
 <p>CPython quản lí bộ nhớ cực kì tinh vi</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mọi-thứ-đều-là-object-pyobject">Mọi thứ đều là Object (PyObject)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#m%E1%BB%8Di-th%E1%BB%A9-%C4%91%E1%BB%81u-l%C3%A0-object-pyobject" class="hash-link" aria-label="Direct link to Mọi thứ đều là Object (PyObject)" title="Direct link to Mọi thứ đều là Object (PyObject)" translate="no">​</a></h3>
@@ -73,9 +72,21 @@
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="dọn-rác-garbage-collection">Dọn rác (Garbage Collection)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#d%E1%BB%8Dn-r%C3%A1c-garbage-collection" class="hash-link" aria-label="Direct link to Dọn rác (Garbage Collection)" title="Direct link to Dọn rác (Garbage Collection)" translate="no">​</a></h3>
 <p>Làm sao Python biết khi nào xóa biến để giải phóng RAM?</p>
+<ol>
+<li class="">
+<p><strong>Reference Counting (Chủ đạo)</strong>: Mỗi object có một bộ đếm. Cứ ai dùng biến thì đếm +1, không dùng nữa (hoặc dùng del) thì -1. Khi bộ đếm về 0, object bị xóa ngay lập tức.</p>
+</li>
+<li class="">
+<p><strong>Generational Garbage Collection (Xử lý Cyclic Reference):</strong></p>
+</li>
+</ol>
 <ul>
-<li class="">Reference Counting (Chủ đạo): Cứ ai dùng biến thì đếm +1, không dùng nữa thì -1. Về 0 thì xóa ngay lập tức.</li>
-<li class="">Cyclic GC (Hỗ trợ): Xử lý các ca khó như "Vòng tham chiếu" (A trỏ B, B trỏ A) mà Ref Count bó tay.</li>
+<li class="">
+<p>Vấn đề: Nếu A trỏ tới B, và B trỏ ngược lại A (Vòng tham chiếu), thì Reference Count của cả hai không bao giờ về 0, dù ta không dùng chúng nữa. Đây là rò rỉ bộ nhớ.</p>
+</li>
+<li class="">
+<p>Giải pháp: CPython sử dụng một bộ gom rác thế hệ (Generational GC). Nó định kỳ quét các object dạng "container" (list, dict, class...) để phát hiện các vòng tròn khép kín này và dọn dẹp chúng.</p>
+</li>
 </ul>
 <hr>
 <h2></h2>
