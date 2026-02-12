@@ -15,80 +15,71 @@
             <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
             <description><![CDATA[1. Java Platform Overview – Tổng quan nền tảng Java]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-java-platform-overview--tổng-quan-nền-tảng-java">1. Java Platform Overview – Tổng quan nền tảng Java<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#1-java-platform-overview--t%E1%BB%95ng-quan-n%E1%BB%81n-t%E1%BA%A3ng-java" class="hash-link" aria-label="Direct link to 1. Java Platform Overview – Tổng quan nền tảng Java" title="Direct link to 1. Java Platform Overview – Tổng quan nền tảng Java" translate="no">​</a></h2>
-<p>Java không chỉ là <strong>một ngôn ngữ lập trình</strong>, mà là <strong>một nền tảng hoàn chỉnh (Java Platform)</strong>.</p>
-<p>👉 Khi nói <em>“lập trình Java”</em>, thực chất ta đang làm việc với <strong>3 thành phần cốt lõi</strong>:</p>
+<p>Nhiều người khi mới tiếp cận thường nghĩ Java đơn thuần chỉ là một <strong>ngôn ngữ lập trình</strong>. Trên thực tế, Java được thiết kế như một <strong>nền tảng hoàn chỉnh</strong> (Java Platform), bao gồm nhiều thành phần phối hợp chặt chẽ với nhau để chương trình có thể chạy ổn định trên nhiều hệ điều hành khác nhau..</p>
+<p>👉 Khi nói <em>“lập trình Java”</em>, thực chất ta đang làm việc với 3 trụ cột chính:</p>
 <ul>
-<li class=""><strong>Java Language</strong></li>
-<li class=""><strong>JVM (Java Virtual Machine)</strong></li>
-<li class=""><strong>Hệ sinh thái thư viện &amp; công cụ</strong></li>
+<li class=""><strong>Java Language</strong> - cú pháp và quy tắc viết chương trình</li>
+<li class=""><strong>JVM (Java Virtual Machine)</strong> - môi trường thực thi</li>
+<li class=""><strong>Hệ sinh thái thư viện &amp; công cụ</strong> - hỗ trợ phát triển và chạy ứng dụng</li>
 </ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mục-tiêu-cốt-lõi-của-java">Mục tiêu cốt lõi của Java<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#m%E1%BB%A5c-ti%C3%AAu-c%E1%BB%91t-l%C3%B5i-c%E1%BB%A7a-java" class="hash-link" aria-label="Direct link to Mục tiêu cốt lõi của Java" title="Direct link to Mục tiêu cốt lõi của Java" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="triết-lý-cốt-lõi-của-java-là">Triết lý cốt lõi của Java là:<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#tri%E1%BA%BFt-l%C3%BD-c%E1%BB%91t-l%C3%B5i-c%E1%BB%A7a-java-l%C3%A0" class="hash-link" aria-label="Direct link to Triết lý cốt lõi của Java là:" title="Direct link to Triết lý cốt lõi của Java là:" translate="no">​</a></h3>
 <blockquote>
 <p><strong>Write Once, Run Anywhere (WORA)</strong></p>
 </blockquote>
-<p>Viết code <strong>một lần</strong>, chạy được trên:</p>
-<ul>
-<li class="">Windows</li>
-<li class="">Linux</li>
-<li class="">macOS<br>
-<!-- -->… mà <strong>không cần sửa code</strong></li>
-</ul>
+<p>Điều này có nghĩa là:</p>
+<p>Code Java chỉ cần viết một lần</p>
+<p>Có thể chạy trên Windows, Linux, macOS…</p>
+<p>Không cần chỉnh sửa mã nguồn cho từng hệ điều hành</p>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-vai-trò-của-jdk-jre-jvm">2. Vai trò của JDK, JRE, JVM<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#2-vai-tr%C3%B2-c%E1%BB%A7a-jdk-jre-jvm" class="hash-link" aria-label="Direct link to 2. Vai trò của JDK, JRE, JVM" title="Direct link to 2. Vai trò của JDK, JRE, JVM" translate="no">​</a></h2>
-<p>Rất nhiều người học Java <strong>bị nhầm lẫn 3 khái niệm này</strong>, nên cần làm rõ tuyệt đối.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-phân-biệt-rõ-jdk--jre--jvm-điểm-dễ-nhầm-nhất">2. Phân biệt rõ JDK – JRE – JVM (điểm dễ nhầm nhất)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#2-ph%C3%A2n-bi%E1%BB%87t-r%C3%B5-jdk--jre--jvm-%C4%91i%E1%BB%83m-d%E1%BB%85-nh%E1%BA%A7m-nh%E1%BA%A5t" class="hash-link" aria-label="Direct link to 2. Phân biệt rõ JDK – JRE – JVM (điểm dễ nhầm nhất)" title="Direct link to 2. Phân biệt rõ JDK – JRE – JVM (điểm dễ nhầm nhất)" translate="no">​</a></h2>
+<p>Đây là phần <strong>bắt buộc phải hiểu đúng</strong>, vì rất nhiều người học Java lâu năm vẫn nhầm lẫn ba khái niệm này.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="21-jvm--java-virtual-machine">2.1 JVM – Java Virtual Machine<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#21-jvm--java-virtual-machine" class="hash-link" aria-label="Direct link to 2.1 JVM – Java Virtual Machine" title="Direct link to 2.1 JVM – Java Virtual Machine" translate="no">​</a></h3>
-<p><strong>JVM là gì?</strong></p>
+<p><strong>JVM</strong> là một <strong>máy ảo</strong>, không tồn tại vật lý, nhưng đóng vai trò trung tâm trong việc chạy chương trình Java.</p>
+<p>Đặc điểm quan trọng của JVM:</p>
 <ul>
-<li class="">JVM là <strong>máy ảo</strong></li>
-<li class="">Chạy <strong>bytecode Java</strong></li>
-<li class="">Đóng vai trò <strong>trung gian giữa Java và hệ điều hành</strong></li>
+<li class="">Không đọc được file .java</li>
+<li class="">Không hiểu file .exe</li>
+<li class=""><strong>Chỉ thực thi file</strong> .class <strong>(bytecode)</strong></li>
 </ul>
-<p>📌 JVM:</p>
+<p>Nhiệm vụ chính của JVM:</p>
 <ul>
-<li class="">Không hiểu <code>.java</code></li>
-<li class="">Không hiểu <code>.exe</code></li>
-<li class=""><strong>Chỉ hiểu <code>.class</code> (bytecode)</strong></li>
+<li class="">Làm cầu nối giữa chương trình Java và hệ điều hành</li>
+<li class="">Quản lý bộ nhớ</li>
+<li class="">Tối ưu và thực thi mã lệnh</li>
 </ul>
-<p>👉 Mỗi hệ điều hành có <strong>JVM riêng</strong>, nhưng:</p>
-<ul>
-<li class="">Bytecode thì <strong>giống nhau</strong></li>
-</ul>
+<p>📌 Mỗi hệ điều hành có <strong>JVM riêng</strong> (Windows JVM, Linux JVM, macOS JVM),
+nhưng <strong>bytecode Java là giống nhau</strong> trên mọi nền tảng.</p>
 <hr>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="22-jre--java-runtime-environment">2.2 JRE – Java Runtime Environment<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#22-jre--java-runtime-environment" class="hash-link" aria-label="Direct link to 2.2 JRE – Java Runtime Environment" title="Direct link to 2.2 JRE – Java Runtime Environment" translate="no">​</a></h3>
-<p><strong>JRE gồm:</strong></p>
+<p><strong>JRE</strong> là môi trường dùng để chạy chương trình Java.</p>
+<p>JRE bao gồm:</p>
 <ul>
 <li class="">JVM</li>
-<li class="">Core Java Libraries (java.lang, java.util, ...)</li>
-<li class="">Các file cấu hình runtime</li>
+<li class="">Thư viện chuẩn của Java (java.lang, java.util, java.io, …)</li>
+<li class="">Các thành phần cấu hình runtime</li>
 </ul>
-<p>👉 JRE dùng để:</p>
-<ul>
-<li class=""><strong>Chạy chương trình Java</strong></li>
-<li class="">❌ Không dùng để viết hay biên dịch code</li>
-</ul>
-<p>📌 Nếu máy chỉ có JRE:</p>
-<ul>
-<li class="">Chạy được <code>.class</code></li>
-<li class="">❌ Không biên dịch được <code>.java</code></li>
-</ul>
+<p>👉 JRE <strong>chỉ dùng để chạy chương trình</strong>, không phục vụ phát triển.</p>
+<p>📌 Nếu máy chỉ cài JRE:</p>
+<p>Chạy được file .class</p>
+<p>❌ Không thể biên dịch file .java</p>
 <hr>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="23-jdk--java-development-kit">2.3 JDK – Java Development Kit<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#23-jdk--java-development-kit" class="hash-link" aria-label="Direct link to 2.3 JDK – Java Development Kit" title="Direct link to 2.3 JDK – Java Development Kit" translate="no">​</a></h3>
-<p><strong>JDK = JRE + Công cụ phát triển</strong></p>
-<p>Bao gồm:</p>
+<p><strong>JDK</strong> là bộ công cụ dành cho <strong>lập trình viên Java</strong>.</p>
+<p>JDK bao gồm:</p>
 <ul>
-<li class=""><code>javac</code> (compiler)</li>
-<li class=""><code>java</code> (launcher)</li>
-<li class=""><code>javadoc</code>, <code>jdb</code>, ...</li>
+<li class="">JRE</li>
+<li class="">Trình biên dịch javac</li>
+<li class="">Trình chạy java</li>
+<li class="">Các công cụ hỗ trợ khác: javadoc, jdb, …</li>
 </ul>
-<p>👉 JDK dùng để:</p>
+<p>👉 JDK cho phép:</p>
 <ul>
 <li class="">Viết code</li>
 <li class="">Biên dịch</li>
 <li class="">Chạy</li>
-<li class="">Debug</li>
+<li class="">Debug chương trình</li>
 </ul>
-<p>📌 Khi cài Java để học lập trình:
-➡️ <strong>LUÔN cần JDK</strong></p>
+<p>📌 <strong>Muốn học hoặc làm Java → luôn phải cài JDK</strong></p>
 <hr>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="24-mối-quan-hệ-tổng-thể">2.4 Mối quan hệ tổng thể<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#24-m%E1%BB%91i-quan-h%E1%BB%87-t%E1%BB%95ng-th%E1%BB%83" class="hash-link" aria-label="Direct link to 2.4 Mối quan hệ tổng thể" title="Direct link to 2.4 Mối quan hệ tổng thể" translate="no">​</a></h3>
 <p>JDK <br>
@@ -98,26 +89,28 @@
 └── Development Tools <br></p>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-mối-quan-hệ-giữa-java-language-và-java-platform">3. Mối quan hệ giữa Java Language và Java Platform<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#3-m%E1%BB%91i-quan-h%E1%BB%87-gi%E1%BB%AFa-java-language-v%C3%A0-java-platform" class="hash-link" aria-label="Direct link to 3. Mối quan hệ giữa Java Language và Java Platform" title="Direct link to 3. Mối quan hệ giữa Java Language và Java Platform" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="java-language">Java Language<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#java-language" class="hash-link" aria-label="Direct link to Java Language" title="Direct link to Java Language" translate="no">​</a></h3>
+<p>Hai khái niệm này <strong>không giống nhau</strong>, nhưng thường bị dùng lẫn.</p>
+<p><strong>Java Language</strong></p>
 <ul>
-<li class="">Cú pháp và từ khóa</li>
+<li class="">Cú pháp</li>
 <li class="">Kiểu dữ liệu</li>
-<li class="">OOP (class, object, inheritance)</li>
-<li class="">File mã nguồn <code>.java</code></li>
+<li class="">Lập trình hướng đối tượng (class, object, inheritance, polymorphism)</li>
+<li class="">File mã nguồn .java</li>
 </ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="java-platform">Java Platform<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#java-platform" class="hash-link" aria-label="Direct link to Java Platform" title="Direct link to Java Platform" translate="no">​</a></h3>
+<p><strong>Java Platform</strong></p>
 <ul>
-<li class="">JVM (Java Virtual Machine)</li>
-<li class="">ClassLoader Subsystem</li>
-<li class="">Runtime Data Areas</li>
-<li class="">Execution Engine &amp; Garbage Collector</li>
+<li class="">JVM</li>
+<li class="">ClassLoader</li>
+<li class="">Runtime Memory</li>
+<li class="">Execution Engine</li>
+<li class="">Garbage Collector</li>
 </ul>
-<p><strong>Java Language chỉ là phần nổi</strong><br>
-<strong>Java Platform mới là thứ quyết định chương trình chạy thế nào</strong></p>
+<p>👉 <strong>Java Language chỉ là phần “viết code”</strong>
+👉 <strong>Java Platform mới quyết định chương trình chạy như thế nào</strong></p>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-java-execution-flow--luồng-thực-thi-của-java">4. Java Execution Flow – Luồng thực thi của Java<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#4-java-execution-flow--lu%E1%BB%93ng-th%E1%BB%B1c-thi-c%E1%BB%A7a-java" class="hash-link" aria-label="Direct link to 4. Java Execution Flow – Luồng thực thi của Java" title="Direct link to 4. Java Execution Flow – Luồng thực thi của Java" translate="no">​</a></h2>
-<p>Khi bạn chạy một chương trình Java, <strong>JVM không thực thi trực tiếp file <code>.java</code></strong>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="luồng-tổng-quát">Luồng tổng quát<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#lu%E1%BB%93ng-t%E1%BB%95ng-qu%C3%A1t" class="hash-link" aria-label="Direct link to Luồng tổng quát" title="Direct link to Luồng tổng quát" translate="no">​</a></h3>
+<p>JVM <strong>không bao giờ chạy trực tiếp file</strong> .java.</p>
+<p>Quy trình thực thi tiêu chuẩn:</p>
 <p>IDE <br>
 ↓ (Save) <br>
 <code>Hello.java</code> (Ổ cứng) <br>
@@ -131,35 +124,42 @@
 OS <br>
 ↓ <br>
 CPU thực thi <br></p>
+<p>📌 File .class mới là đầu vào thực sự của JVM.</p>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-compile-time-và-runtime-trong-java">5. Compile-time và Runtime trong Java<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#5-compile-time-v%C3%A0-runtime-trong-java" class="hash-link" aria-label="Direct link to 5. Compile-time và Runtime trong Java" title="Direct link to 5. Compile-time và Runtime trong Java" translate="no">​</a></h2>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="51-compile-time">5.1 Compile-time<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#51-compile-time" class="hash-link" aria-label="Direct link to 5.1 Compile-time" title="Direct link to 5.1 Compile-time" translate="no">​</a></h3>
-<p><strong>Xảy ra khi chạy:</strong></p>
+<p><strong>Xảy ra khi chạy lệnh:</strong></p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">javac Hello.java</span><br></span></code></pre></div></div>
-<p>Đầu vào:</p>
-<p>File .java (source code)</p>
-<p>Java làm gì?
--Kiểm tra cú pháp
--Kiểm tra kiểu dữ liệu
--Biên dịch sang bytecode</p>
-<p>Đầu ra:
--File .class</p>
-<p>📌 Compile-time không chạy chương trình</p>
+<p>Java sẽ:</p>
+<ul>
+<li class="">Kiểm tra cú pháp</li>
+<li class="">Kiểm tra kiểu dữ liệu</li>
+<li class="">Biên dịch mã nguồn sang bytecode</li>
+</ul>
+<p>Kết quả:</p>
+<ul>
+<li class="">Tạo ra file .class</li>
+<li class=""><strong>Chương trình chưa chạy</strong></li>
+</ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="52-runtime">5.2 Runtime<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#52-runtime" class="hash-link" aria-label="Direct link to 5.2 Runtime" title="Direct link to 5.2 Runtime" translate="no">​</a></h3>
 <p>Xảy ra khi chạy:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">java Hello</span><br></span></code></pre></div></div>
 <p>Đầu vào:
 -File .class</p>
-<p>Java làm gì?
--JVM load class
--Kiểm tra bytecode</p>
-<p>Thực thi
-📌 Runtime mới là lúc chương trình thực sự chạy</p>
+<p>Lúc này JVM:</p>
+<ul>
+<li class="">Load class</li>
+<li class="">Verify bytecode</li>
+<li class="">Thực thi chương trình</li>
+</ul>
+<p>📌 Runtime mới là thời điểm chương trình thực sự hoạt động.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-bytecode-là-gì-vì-sao-java-portable">6. Bytecode là gì? Vì sao Java portable?<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#6-bytecode-l%C3%A0-g%C3%AC-v%C3%AC-sao-java-portable" class="hash-link" aria-label="Direct link to 6. Bytecode là gì? Vì sao Java portable?" title="Direct link to 6. Bytecode là gì? Vì sao Java portable?" translate="no">​</a></h2>
-<p>Bytecode là gì?
--Là mã trung gian
--Không phải mã máy
--Không phụ thuộc OS hay CPU</p>
+<p><strong>Bytecode</strong> là gì?</p>
+<ul>
+<li class="">Mã trung gian</li>
+<li class="">Không phụ thuộc CPU hay hệ điều hành</li>
+<li class="">Được thiết kế riêng cho JVM</li>
+</ul>
 <p>📌 Bytecode:
 -Chạy trên JVM
 -JVM dịch tiếp sang mã máy</p>
@@ -173,18 +173,22 @@ Bytecode (.class)<br>
 │ JVM Linux │ → CPU Linux <br>
 │ JVM macOS │ → CPU macOS <br>
 └─────────────┘</p>
-<p>👉 Không phải Java chạy trực tiếp trên OS
-👉 JVM mới là thứ chạy trên OS</p>
+<p>👉 Java không chạy trực tiếp trên OS
+👉 JVM mới là thứ giao tiếp trực tiếp với hệ điều hành</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-jvm-architecture--kiến-trúc-jvm">7. JVM Architecture – Kiến trúc JVM<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#7-jvm-architecture--ki%E1%BA%BFn-tr%C3%BAc-jvm" class="hash-link" aria-label="Direct link to 7. JVM Architecture – Kiến trúc JVM" title="Direct link to 7. JVM Architecture – Kiến trúc JVM" translate="no">​</a></h2>
-<p>JVM gồm 3 khối lớn:
--ClassLoader Subsystem
--Runtime Data Areas
--Execution Engine</p>
+<p>JVM được chia thành 3 khối chính:</p>
+<ul>
+<li class="">ClassLoader Subsystem</li>
+<li class="">Runtime Data Areas</li>
+<li class="">Execution Engine</li>
+</ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-classloader-subsystem">8. ClassLoader Subsystem<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#8-classloader-subsystem" class="hash-link" aria-label="Direct link to 8. ClassLoader Subsystem" title="Direct link to 8. ClassLoader Subsystem" translate="no">​</a></h2>
-<p>Nhiệm vụ:
--Load .class vào JVM
--Kiểm tra tính hợp lệ
--Chuẩn bị class để chạy</p>
+<p>Nhiệm vụ:</p>
+<ul>
+<li class="">Load .class vào JVM</li>
+<li class="">Kiểm tra tính hợp lệ</li>
+<li class="">Chuẩn bị class cho quá trình thực thi</li>
+</ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="các-loại-classloader-trong-jvm">Các loại ClassLoader trong JVM<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#c%C3%A1c-lo%E1%BA%A1i-classloader-trong-jvm" class="hash-link" aria-label="Direct link to Các loại ClassLoader trong JVM" title="Direct link to Các loại ClassLoader trong JVM" translate="no">​</a></h3>
 <ul>
 <li class="">
@@ -225,20 +229,30 @@ Bytecode (.class)<br>
 <p>Dùng cho code native (C/C++)</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="10-execution-engine--bộ-máy-thực-thi">10. Execution Engine – Bộ máy thực thi<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#10-execution-engine--b%E1%BB%99-m%C3%A1y-th%E1%BB%B1c-thi" class="hash-link" aria-label="Direct link to 10. Execution Engine – Bộ máy thực thi" title="Direct link to 10. Execution Engine – Bộ máy thực thi" translate="no">​</a></h2>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="101-interpreter">10.1 Interpreter<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#101-interpreter" class="hash-link" aria-label="Direct link to 10.1 Interpreter" title="Direct link to 10.1 Interpreter" translate="no">​</a></h3>
-<p>Đọc bytecode</p>
-<p>Thực thi từng instruction</p>
-<p>📌 Ưu điểm:
--Chạy ngay</p>
-<p>📌 Nhược điểm:
--Chậm nếu chạy lặp nhiều lần</p>
+<ul>
+<li class="">Đọc bytecode</li>
+<li class="">Thực thi từng instruction</li>
+</ul>
+<p>📌 Ưu điểm:</p>
+<ul>
+<li class="">Chạy ngay</li>
+</ul>
+<p>📌 Nhược điểm:</p>
+<ul>
+<li class="">Chậm nếu chạy lặp nhiều lần</li>
+</ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="102-jit-compiler-just-in-time">10.2 JIT Compiler (Just-In-Time)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#102-jit-compiler-just-in-time" class="hash-link" aria-label="Direct link to 10.2 JIT Compiler (Just-In-Time)" title="Direct link to 10.2 JIT Compiler (Just-In-Time)" translate="no">​</a></h3>
-<p>JIT làm gì?
--Phát hiện đoạn code chạy nhiều
--Biên dịch bytecode → mã máy
--Cache lại để dùng sau</p>
-<p>📌 JVM hiện đại:
--Interpreter + JIT
--Tự tối ưu khi chương trình chạy</p>
+<p>JIT làm gì?</p>
+<ul>
+<li class="">Phát hiện đoạn code chạy nhiều</li>
+<li class="">Biên dịch bytecode → mã máy</li>
+<li class="">Cache lại để dùng sau</li>
+</ul>
+<p>📌 JVM hiện đại:</p>
+<ul>
+<li class="">Interpreter + JIT</li>
+<li class="">Tự tối ưu khi chương trình chạy</li>
+</ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="11-tổng-kết">11. Tổng kết<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#11-t%E1%BB%95ng-k%E1%BA%BFt" class="hash-link" aria-label="Direct link to 11. Tổng kết" title="Direct link to 11. Tổng kết" translate="no">​</a></h2>
 <p>Tham khảo slide chi tiết tại đây :</p>
 <ul>
