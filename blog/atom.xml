@@ -1,378 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://trongnghia1811.github.io/my-docusaurus/blog</id>
-    <title>Blog của Nghĩa Blog</title>
-    <updated>2026-11-02T00:00:00.000Z</updated>
+    <title>Nghia's Blog Blog</title>
+    <updated>2026-02-02T11:20:01.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://trongnghia1811.github.io/my-docusaurus/blog"/>
-    <subtitle>Blog của Nghĩa Blog</subtitle>
+    <subtitle>Nghia's Blog Blog</subtitle>
     <icon>https://trongnghia1811.github.io/my-docusaurus/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[Tìm hiểu Java Platform – Execution Flow & JVM Architecture]]></title>
-        <id>https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform</id>
-        <link href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform"/>
-        <updated>2026-11-02T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[1. Java Platform Overview – Tổng quan nền tảng Java]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-java-platform-overview--tổng-quan-nền-tảng-java">1. Java Platform Overview – Tổng quan nền tảng Java<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#1-java-platform-overview--t%E1%BB%95ng-quan-n%E1%BB%81n-t%E1%BA%A3ng-java" class="hash-link" aria-label="Direct link to 1. Java Platform Overview – Tổng quan nền tảng Java" title="Direct link to 1. Java Platform Overview – Tổng quan nền tảng Java" translate="no">​</a></h2>
-<p>Nhiều người khi mới tiếp cận thường nghĩ Java đơn thuần chỉ là một <strong>ngôn ngữ lập trình</strong>. Trên thực tế, Java được thiết kế như một <strong>nền tảng hoàn chỉnh</strong> (Java Platform), bao gồm nhiều thành phần phối hợp chặt chẽ với nhau để chương trình có thể chạy ổn định trên nhiều hệ điều hành khác nhau..</p>
-<p>👉 Khi nói <em>“lập trình Java”</em>, thực chất ta đang làm việc với 3 trụ cột chính:</p>
-<ul>
-<li class=""><strong>Java Language</strong> - cú pháp và quy tắc viết chương trình</li>
-<li class=""><strong>JVM (Java Virtual Machine)</strong> - môi trường thực thi</li>
-<li class=""><strong>Hệ sinh thái thư viện &amp; công cụ</strong> - hỗ trợ phát triển và chạy ứng dụng</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="triết-lý-cốt-lõi-của-java-là">Triết lý cốt lõi của Java là:<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#tri%E1%BA%BFt-l%C3%BD-c%E1%BB%91t-l%C3%B5i-c%E1%BB%A7a-java-l%C3%A0" class="hash-link" aria-label="Direct link to Triết lý cốt lõi của Java là:" title="Direct link to Triết lý cốt lõi của Java là:" translate="no">​</a></h3>
-<blockquote>
-<p><strong>Write Once, Run Anywhere (WORA)</strong></p>
-</blockquote>
-<p>Điều này có nghĩa là:</p>
-<p>Code Java chỉ cần viết một lần</p>
-<p>Có thể chạy trên Windows, Linux, macOS…</p>
-<p>Không cần chỉnh sửa mã nguồn cho từng hệ điều hành</p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-phân-biệt-rõ-jdk--jre--jvm-điểm-dễ-nhầm-nhất">2. Phân biệt rõ JDK – JRE – JVM (điểm dễ nhầm nhất)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#2-ph%C3%A2n-bi%E1%BB%87t-r%C3%B5-jdk--jre--jvm-%C4%91i%E1%BB%83m-d%E1%BB%85-nh%E1%BA%A7m-nh%E1%BA%A5t" class="hash-link" aria-label="Direct link to 2. Phân biệt rõ JDK – JRE – JVM (điểm dễ nhầm nhất)" title="Direct link to 2. Phân biệt rõ JDK – JRE – JVM (điểm dễ nhầm nhất)" translate="no">​</a></h2>
-<p>Đây là phần <strong>bắt buộc phải hiểu đúng</strong>, vì rất nhiều người học Java lâu năm vẫn nhầm lẫn ba khái niệm này.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="21-jvm--java-virtual-machine">2.1 JVM – Java Virtual Machine<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#21-jvm--java-virtual-machine" class="hash-link" aria-label="Direct link to 2.1 JVM – Java Virtual Machine" title="Direct link to 2.1 JVM – Java Virtual Machine" translate="no">​</a></h3>
-<p><strong>JVM</strong> là một <strong>máy ảo</strong>, không tồn tại vật lý, nhưng đóng vai trò trung tâm trong việc chạy chương trình Java.</p>
-<p>Đặc điểm quan trọng của JVM:</p>
-<ul>
-<li class="">Không đọc được file .java</li>
-<li class="">Không hiểu file .exe</li>
-<li class=""><strong>Chỉ thực thi file</strong> .class <strong>(bytecode)</strong></li>
-</ul>
-<p>Nhiệm vụ chính của JVM:</p>
-<ul>
-<li class="">Làm cầu nối giữa chương trình Java và hệ điều hành</li>
-<li class="">Quản lý bộ nhớ</li>
-<li class="">Tối ưu và thực thi mã lệnh</li>
-</ul>
-<p>📌 Mỗi hệ điều hành có <strong>JVM riêng</strong> (Windows JVM, Linux JVM, macOS JVM),
-nhưng <strong>bytecode Java là giống nhau</strong> trên mọi nền tảng.</p>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="22-jre--java-runtime-environment">2.2 JRE – Java Runtime Environment<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#22-jre--java-runtime-environment" class="hash-link" aria-label="Direct link to 2.2 JRE – Java Runtime Environment" title="Direct link to 2.2 JRE – Java Runtime Environment" translate="no">​</a></h3>
-<p><strong>JRE</strong> là môi trường dùng để chạy chương trình Java.</p>
-<p>JRE bao gồm:</p>
-<ul>
-<li class="">JVM</li>
-<li class="">Thư viện chuẩn của Java (java.lang, java.util, java.io, …)</li>
-<li class="">Các thành phần cấu hình runtime</li>
-</ul>
-<p>👉 JRE <strong>chỉ dùng để chạy chương trình</strong>, không phục vụ phát triển.</p>
-<p>📌 Nếu máy chỉ cài JRE:</p>
-<p>Chạy được file .class</p>
-<p>❌ Không thể biên dịch file .java</p>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="23-jdk--java-development-kit">2.3 JDK – Java Development Kit<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#23-jdk--java-development-kit" class="hash-link" aria-label="Direct link to 2.3 JDK – Java Development Kit" title="Direct link to 2.3 JDK – Java Development Kit" translate="no">​</a></h3>
-<p><strong>JDK</strong> là bộ công cụ dành cho <strong>lập trình viên Java</strong>.</p>
-<p>JDK bao gồm:</p>
-<ul>
-<li class="">JRE</li>
-<li class="">Trình biên dịch javac</li>
-<li class="">Trình chạy java</li>
-<li class="">Các công cụ hỗ trợ khác: javadoc, jdb, …</li>
-</ul>
-<p>👉 JDK cho phép:</p>
-<ul>
-<li class="">Viết code</li>
-<li class="">Biên dịch</li>
-<li class="">Chạy</li>
-<li class="">Debug chương trình</li>
-</ul>
-<p>📌 <strong>Muốn học hoặc làm Java → luôn phải cài JDK</strong></p>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="24-mối-quan-hệ-tổng-thể">2.4 Mối quan hệ tổng thể<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#24-m%E1%BB%91i-quan-h%E1%BB%87-t%E1%BB%95ng-th%E1%BB%83" class="hash-link" aria-label="Direct link to 2.4 Mối quan hệ tổng thể" title="Direct link to 2.4 Mối quan hệ tổng thể" translate="no">​</a></h3>
-<p>JDK <br>
-├── JRE <br>
-│ ├── JVM <br>
-│ └── Java Core Libraries <br>
-└── Development Tools <br></p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-mối-quan-hệ-giữa-java-language-và-java-platform">3. Mối quan hệ giữa Java Language và Java Platform<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#3-m%E1%BB%91i-quan-h%E1%BB%87-gi%E1%BB%AFa-java-language-v%C3%A0-java-platform" class="hash-link" aria-label="Direct link to 3. Mối quan hệ giữa Java Language và Java Platform" title="Direct link to 3. Mối quan hệ giữa Java Language và Java Platform" translate="no">​</a></h2>
-<p>Hai khái niệm này <strong>không giống nhau</strong>, nhưng thường bị dùng lẫn.</p>
-<p><strong>Java Language</strong></p>
-<ul>
-<li class="">Cú pháp</li>
-<li class="">Kiểu dữ liệu</li>
-<li class="">Lập trình hướng đối tượng (class, object, inheritance, polymorphism)</li>
-<li class="">File mã nguồn .java</li>
-</ul>
-<p><strong>Java Platform</strong></p>
-<ul>
-<li class="">JVM</li>
-<li class="">ClassLoader</li>
-<li class="">Runtime Memory</li>
-<li class="">Execution Engine</li>
-<li class="">Garbage Collector</li>
-</ul>
-<p>👉 <strong>Java Language chỉ là phần “viết code”</strong>
-👉 <strong>Java Platform mới quyết định chương trình chạy như thế nào</strong></p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-java-execution-flow--luồng-thực-thi-của-java">4. Java Execution Flow – Luồng thực thi của Java<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#4-java-execution-flow--lu%E1%BB%93ng-th%E1%BB%B1c-thi-c%E1%BB%A7a-java" class="hash-link" aria-label="Direct link to 4. Java Execution Flow – Luồng thực thi của Java" title="Direct link to 4. Java Execution Flow – Luồng thực thi của Java" translate="no">​</a></h2>
-<p>JVM <strong>không bao giờ chạy trực tiếp file</strong> .java.</p>
-<p>Quy trình thực thi tiêu chuẩn:</p>
-<p>IDE <br>
-↓ (Save) <br>
-<code>Hello.java</code> (Ổ cứng) <br>
-↓ (Compile) <br>
-<code>javac Hello.java</code> <br>
-↓ <br>
-<code>Hello.class</code> (Bytecode) <br>
-↓ <br></p>
-<p>JVM (RAM) <br>
-↓ <br>
-OS <br>
-↓ <br>
-CPU thực thi <br></p>
-<p>📌 File .class mới là đầu vào thực sự của JVM.</p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-compile-time-và-runtime-trong-java">5. Compile-time và Runtime trong Java<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#5-compile-time-v%C3%A0-runtime-trong-java" class="hash-link" aria-label="Direct link to 5. Compile-time và Runtime trong Java" title="Direct link to 5. Compile-time và Runtime trong Java" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="51-compile-time">5.1 Compile-time<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#51-compile-time" class="hash-link" aria-label="Direct link to 5.1 Compile-time" title="Direct link to 5.1 Compile-time" translate="no">​</a></h3>
-<p><strong>Xảy ra khi chạy lệnh:</strong></p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">javac Hello.java</span><br></span></code></pre></div></div>
-<p>Java sẽ:</p>
-<ul>
-<li class="">Kiểm tra cú pháp</li>
-<li class="">Kiểm tra kiểu dữ liệu</li>
-<li class="">Biên dịch mã nguồn sang bytecode</li>
-</ul>
-<p>Kết quả:</p>
-<ul>
-<li class="">Tạo ra file .class</li>
-<li class=""><strong>Chương trình chưa chạy</strong></li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="52-runtime">5.2 Runtime<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#52-runtime" class="hash-link" aria-label="Direct link to 5.2 Runtime" title="Direct link to 5.2 Runtime" translate="no">​</a></h3>
-<p>Xảy ra khi chạy:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">java Hello</span><br></span></code></pre></div></div>
-<p>Đầu vào:
--File .class</p>
-<p>Lúc này JVM:</p>
-<ul>
-<li class="">Load class</li>
-<li class="">Verify bytecode</li>
-<li class="">Thực thi chương trình</li>
-</ul>
-<p>📌 Runtime mới là thời điểm chương trình thực sự hoạt động.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-bytecode-là-gì-vì-sao-java-portable">6. Bytecode là gì? Vì sao Java portable?<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#6-bytecode-l%C3%A0-g%C3%AC-v%C3%AC-sao-java-portable" class="hash-link" aria-label="Direct link to 6. Bytecode là gì? Vì sao Java portable?" title="Direct link to 6. Bytecode là gì? Vì sao Java portable?" translate="no">​</a></h2>
-<p><strong>Bytecode</strong> là gì?</p>
-<ul>
-<li class="">Mã trung gian</li>
-<li class="">Không phụ thuộc CPU hay hệ điều hành</li>
-<li class="">Được thiết kế riêng cho JVM</li>
-</ul>
-<p>📌 Bytecode:
--Chạy trên JVM
--JVM dịch tiếp sang mã máy</p>
-<p>Vì sao Java chạy đa nền tảng?</p>
-<p>Java Source (.java)<br>
-↓<br>
-Bytecode (.class)<br>
-↓<br>
-┌─────────────┐ <br>
-│ JVM Windows │ → CPU Windows <br>
-│ JVM Linux │ → CPU Linux <br>
-│ JVM macOS │ → CPU macOS <br>
-└─────────────┘</p>
-<p>👉 Java không chạy trực tiếp trên OS
-👉 JVM mới là thứ giao tiếp trực tiếp với hệ điều hành</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-jvm-architecture--kiến-trúc-jvm">7. JVM Architecture – Kiến trúc JVM<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#7-jvm-architecture--ki%E1%BA%BFn-tr%C3%BAc-jvm" class="hash-link" aria-label="Direct link to 7. JVM Architecture – Kiến trúc JVM" title="Direct link to 7. JVM Architecture – Kiến trúc JVM" translate="no">​</a></h2>
-<p>JVM được chia thành 3 khối chính:</p>
-<ul>
-<li class="">ClassLoader Subsystem</li>
-<li class="">Runtime Data Areas</li>
-<li class="">Execution Engine</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-classloader-subsystem">8. ClassLoader Subsystem<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#8-classloader-subsystem" class="hash-link" aria-label="Direct link to 8. ClassLoader Subsystem" title="Direct link to 8. ClassLoader Subsystem" translate="no">​</a></h2>
-<p>Nhiệm vụ:</p>
-<ul>
-<li class="">Load .class vào JVM</li>
-<li class="">Kiểm tra tính hợp lệ</li>
-<li class="">Chuẩn bị class cho quá trình thực thi</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="các-loại-classloader-trong-jvm">Các loại ClassLoader trong JVM<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#c%C3%A1c-lo%E1%BA%A1i-classloader-trong-jvm" class="hash-link" aria-label="Direct link to Các loại ClassLoader trong JVM" title="Direct link to Các loại ClassLoader trong JVM" translate="no">​</a></h3>
-<ul>
-<li class="">
-<p><strong>Bootstrap ClassLoader</strong><br>
-<!-- -->Load các core class của Java (ví dụ: <code>java.lang</code>, <code>java.util</code>)</p>
-</li>
-<li class="">
-<p><strong>Platform ClassLoader</strong> <em>(Java 9+)</em><br>
-<!-- -->Load các thư viện thuộc Java Platform (ví dụ: <code>java.sql</code>, <code>java.xml</code>)</p>
-</li>
-<li class="">
-<p><strong>Application ClassLoader</strong><br>
-<!-- -->Load các class do lập trình viên viết (classpath)
-📌 Class chỉ được load khi cần thiết</p>
-</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="9-runtime-data-areas--vùng-nhớ-trong-jvm">9. Runtime Data Areas – Vùng nhớ trong JVM<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#9-runtime-data-areas--v%C3%B9ng-nh%E1%BB%9B-trong-jvm" class="hash-link" aria-label="Direct link to 9. Runtime Data Areas – Vùng nhớ trong JVM" title="Direct link to 9. Runtime Data Areas – Vùng nhớ trong JVM" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="91-method-area">9.1 Method Area<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#91-method-area" class="hash-link" aria-label="Direct link to 9.1 Method Area" title="Direct link to 9.1 Method Area" translate="no">​</a></h3>
-<p>Lưu:
--Class metadata
--Method info
--Static variables</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="92-heap">9.2 Heap<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#92-heap" class="hash-link" aria-label="Direct link to 9.2 Heap" title="Direct link to 9.2 Heap" translate="no">​</a></h3>
-<p>-Lưu object
--Dùng chung cho toàn JVM
--Do Garbage Collector quản lý</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="93-stack">9.3 Stack<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#93-stack" class="hash-link" aria-label="Direct link to 9.3 Stack" title="Direct link to 9.3 Stack" translate="no">​</a></h3>
-<p>Mỗi thread có stack riêng</p>
-<p>Lưu:
--Local variables
--Method call
--Reference</p>
-<p>📌 Stack nhỏ, nhanh
-📌 Heap lớn, chậm hơn</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="94-pc-register">9.4 PC Register<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#94-pc-register" class="hash-link" aria-label="Direct link to 9.4 PC Register" title="Direct link to 9.4 PC Register" translate="no">​</a></h3>
-<p>Lưu địa chỉ instruction đang chạy</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="95-native-method-stack">9.5 Native Method Stack<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#95-native-method-stack" class="hash-link" aria-label="Direct link to 9.5 Native Method Stack" title="Direct link to 9.5 Native Method Stack" translate="no">​</a></h3>
-<p>Dùng cho code native (C/C++)</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="10-execution-engine--bộ-máy-thực-thi">10. Execution Engine – Bộ máy thực thi<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#10-execution-engine--b%E1%BB%99-m%C3%A1y-th%E1%BB%B1c-thi" class="hash-link" aria-label="Direct link to 10. Execution Engine – Bộ máy thực thi" title="Direct link to 10. Execution Engine – Bộ máy thực thi" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="101-interpreter">10.1 Interpreter<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#101-interpreter" class="hash-link" aria-label="Direct link to 10.1 Interpreter" title="Direct link to 10.1 Interpreter" translate="no">​</a></h3>
-<ul>
-<li class="">Đọc bytecode</li>
-<li class="">Thực thi từng instruction</li>
-</ul>
-<p>📌 Ưu điểm:</p>
-<ul>
-<li class="">Chạy ngay</li>
-</ul>
-<p>📌 Nhược điểm:</p>
-<ul>
-<li class="">Chậm nếu chạy lặp nhiều lần</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="102-jit-compiler-just-in-time">10.2 JIT Compiler (Just-In-Time)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#102-jit-compiler-just-in-time" class="hash-link" aria-label="Direct link to 10.2 JIT Compiler (Just-In-Time)" title="Direct link to 10.2 JIT Compiler (Just-In-Time)" translate="no">​</a></h3>
-<p>JIT làm gì?</p>
-<ul>
-<li class="">Phát hiện đoạn code chạy nhiều</li>
-<li class="">Biên dịch bytecode → mã máy</li>
-<li class="">Cache lại để dùng sau</li>
-</ul>
-<p>📌 JVM hiện đại:</p>
-<ul>
-<li class="">Interpreter + JIT</li>
-<li class="">Tự tối ưu khi chương trình chạy</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="11-tổng-kết">11. Tổng kết<a href="https://trongnghia1811.github.io/my-docusaurus/blog/tim-hieu-Java-platform#11-t%E1%BB%95ng-k%E1%BA%BFt" class="hash-link" aria-label="Direct link to 11. Tổng kết" title="Direct link to 11. Tổng kết" translate="no">​</a></h2>
-<p>Tham khảo slide chi tiết tại đây :</p>
-<ul>
-<li class="">🔗 <a href="https://www.canva.com/design/DAHApyPYZmw/AQAchpZL_3B77rpOe4-3YQ/edit" target="_blank" rel="noopener noreferrer" class="">https://www.canva.com/design/DAHApyPYZmw/AQAchpZL_3B77rpOe4-3YQ/edit</a></li>
-</ul>
-<p>Java không đơn thuần là một ngôn ngữ, mà là một nền tảng hoàn chỉnh gồm JDK, JRE và JVM. Chương trình Java không chạy trực tiếp trên hệ điều hành mà phải trải qua quá trình biên dịch sang bytecode, sau đó được JVM thông dịch và tối ưu bằng JIT trước khi CPU thực thi.</p>
-<p>Việc hiểu rõ:</p>
-<p>-Java Platform <br>
--Execution Flow <br>
--JVM Architecture <br></p>
-<p>giúp lập trình viên:</p>
-<p>-Hiểu sâu bản chất Java <br>
--Debug tốt hơn <br>
--Viết code tối ưu hơn <br>
--Có nền tảng học Spring, JVM tuning, backend chuyên sâu <br></p>]]></content>
-        <author>
-            <name>Phạm Trọng Nghĩa</name>
-            <uri>https://github.com/trongnghia1811</uri>
-        </author>
-        <category label="java" term="java"/>
-        <category label="jvm" term="jvm"/>
-        <category label="bytecode" term="bytecode"/>
-        <category label="jdk" term="jdk"/>
-        <category label="jre" term="jre"/>
-        <category label="jit" term="jit"/>
-        <category label="execution-flow" term="execution-flow"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[CPython là gì?]]></title>
+        <title type="html"><![CDATA[What is CPython?]]></title>
         <id>https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2</id>
         <link href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2"/>
         <updated>2026-02-02T11:20:01.000Z</updated>
-        <summary type="html"><![CDATA[Trong bài viết này, mình sẽ chia sẻ về những gì mình biết khi tìm hiểu về CPython.]]></summary>
-        <content type="html"><![CDATA[<p>Trong bài viết này, mình sẽ chia sẻ về những gì mình biết khi tìm hiểu về CPython.</p>
+        <summary type="html"><![CDATA[In this article, I will share what I know from learning about CPython.]]></summary>
+        <content type="html"><![CDATA[<p>In this article, I will share what I know from learning about CPython.</p>
 <ul>
-<li class="">CPython là gì?</li>
-<li class="">Hành trình từ dòng code xuống IDE diễn ra thế nào?</li>
-<li class="">Cách CPython quản lý bộ nhớ?</li>
+<li class="">What is CPython?</li>
+<li class="">How does the journey from a line of code in the IDE to execution happen?</li>
+<li class="">How does CPython manage memory?</li>
 </ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-cpython-là-gì">1. CPython là gì?<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#1-cpython-l%C3%A0-g%C3%AC" class="hash-link" aria-label="Direct link to 1. CPython là gì?" title="Direct link to 1. CPython là gì?" translate="no">​</a></h2>
-<p>Trước khi đi vào chi tiết, chúng ta cần làm rõ: Python là ngôn ngữ (tập hợp các quy tắc ngữ pháp). Còn CPython là phần mềm thực thi các quy tắc đó (Implementation).</p>
-<p>Khi ta tải Python từ trang chủ về tức là ta đang tải CPython. Nó được viết hoàn toàn bằng C. Nó vừa là Compiler (biên dịch), vừa là Interpreter (thông dịch).</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-hành-trình-của-code-pipeline-từ-a-đến-z">2. Hành trình của Code: Pipeline từ A đến Z<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#2-h%C3%A0nh-tr%C3%ACnh-c%E1%BB%A7a-code-pipeline-t%E1%BB%AB-a-%C4%91%E1%BA%BFn-z" class="hash-link" aria-label="Direct link to 2. Hành trình của Code: Pipeline từ A đến Z" title="Direct link to 2. Hành trình của Code: Pipeline từ A đến Z" translate="no">​</a></h2>
-<p>Cho ví dụ sau:</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-what-is-cpython">1. What is CPython?<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#1-what-is-cpython" class="hash-link" aria-label="Direct link to 1. What is CPython?" title="Direct link to 1. What is CPython?" translate="no">​</a></h2>
+<p>Before going into detail, we need to clarify: Python is a language (a set of grammatical rules). CPython is the software that executes those rules (Implementation).</p>
+<p>When we download Python from the homepage, we are actually downloading CPython. It is written entirely in C. It acts as both a Compiler and an Interpreter.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-the-journey-of-code-pipeline-from-a-to-z">2. The Journey of Code: Pipeline from A to Z<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#2-the-journey-of-code-pipeline-from-a-to-z" class="hash-link" aria-label="Direct link to 2. The Journey of Code: Pipeline from A to Z" title="Direct link to 2. The Journey of Code: Pipeline from A to Z" translate="no">​</a></h2>
+<p>Consider the following example:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">a = 10</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">print(a + 5)</span><br></span></code></pre></div></div>
-<p>Để máy tính hiểu được, dòng code này phải trải qua một quá trình nghiêm ngặt gồm 4 giai đoạn:</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="giai-đoạn-1-lexing-phân-tích-từ-vựng">Giai đoạn 1: Lexing (Phân tích từ vựng)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#giai-%C4%91o%E1%BA%A1n-1-lexing-ph%C3%A2n-t%C3%ADch-t%E1%BB%AB-v%E1%BB%B1ng" class="hash-link" aria-label="Direct link to Giai đoạn 1: Lexing (Phân tích từ vựng)" title="Direct link to Giai đoạn 1: Lexing (Phân tích từ vựng)" translate="no">​</a></h3>
-<p>CPython đọc file code của ta như một chuỗi văn bản vô nghĩa. Lexer sẽ băm nhỏ chuỗi đó thành các đơn vị có nghĩa gọi là Tokens.</p>
+<p>For the computer to understand, this line of code must go through a strict process consisting of 4 stages:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="stage-1-lexing-lexical-analysis">Stage 1: Lexing (Lexical Analysis)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#stage-1-lexing-lexical-analysis" class="hash-link" aria-label="Direct link to Stage 1: Lexing (Lexical Analysis)" title="Direct link to Stage 1: Lexing (Lexical Analysis)" translate="no">​</a></h3>
+<p>CPython reads our code file as a meaningless string of text. The Lexer will chop that string into meaningful units called Tokens.</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">a -&gt; NAME</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">= -&gt; OP</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">10 -&gt; NUMBER</span><br></span></code></pre></div></div>
-<p>Lexer của Python rất đặc biệt: nó quan tâm đến cả khoảng trắng (indentation) để sinh ra các token INDENT và DEDENT, giúp định hình khối lệnh.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="giai-đoạn-2-parsing--ast-xây-dựng-cây-cú-pháp-trừu-tượng">Giai đoạn 2: Parsing &amp; AST (Xây dựng cây cú pháp trừu tượng)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#giai-%C4%91o%E1%BA%A1n-2-parsing--ast-x%C3%A2y-d%E1%BB%B1ng-c%C3%A2y-c%C3%BA-ph%C3%A1p-tr%E1%BB%ABu-t%C6%B0%E1%BB%A3ng" class="hash-link" aria-label="Direct link to Giai đoạn 2: Parsing &amp; AST (Xây dựng cây cú pháp trừu tượng)" title="Direct link to Giai đoạn 2: Parsing &amp; AST (Xây dựng cây cú pháp trừu tượng)" translate="no">​</a></h3>
-<p>Từ những token rời rạc trên, Parser sẽ sắp xếp chúng lại theo ngữ pháp và dựng lên một Cây Cú pháp Trừu tượng (Abstract Syntax Tree - AST). Máy tính không đọc từ trái sang phải như người, nó nhìn cấu trúc cây để biết cái nào là cha, cái nào là con, cái nào ưu tiên thực hiện trước (ví dụ: nhân chia trước, cộng trừ sau).</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="giai-đoạn-3-compilation-biên-dịch-sang-bytecode">Giai đoạn 3: Compilation (Biên dịch sang Bytecode)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#giai-%C4%91o%E1%BA%A1n-3-compilation-bi%C3%AAn-d%E1%BB%8Bch-sang-bytecode" class="hash-link" aria-label="Direct link to Giai đoạn 3: Compilation (Biên dịch sang Bytecode)" title="Direct link to Giai đoạn 3: Compilation (Biên dịch sang Bytecode)" translate="no">​</a></h3>
-<p>Đến đây, một bước cực kỳ quan trọng diễn ra: CPython bắt buộc phải dịch AST sang một ngôn ngữ trung gian gọi là Bytecode (.pyc).</p>
+<p>Python's Lexer is very special: it also cares about whitespace (indentation) to generate INDENT and DEDENT tokens, helping to shape the code blocks.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="stage-2-parsing--ast-building-the-abstract-syntax-tree">Stage 2: Parsing &amp; AST (Building the Abstract Syntax Tree)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#stage-2-parsing--ast-building-the-abstract-syntax-tree" class="hash-link" aria-label="Direct link to Stage 2: Parsing &amp; AST (Building the Abstract Syntax Tree)" title="Direct link to Stage 2: Parsing &amp; AST (Building the Abstract Syntax Tree)" translate="no">​</a></h3>
+<p>From the discrete tokens above, the Parser will arrange them according to the grammar and build an Abstract Syntax Tree (AST). The computer doesn't read from left to right like humans; it looks at the tree structure to know which is the parent, which is the child, and which has execution priority (e.g., multiplication and division first, addition and subtraction later).</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="stage-3-compilation-compiling-to-bytecode">Stage 3: Compilation (Compiling to Bytecode)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#stage-3-compilation-compiling-to-bytecode" class="hash-link" aria-label="Direct link to Stage 3: Compilation (Compiling to Bytecode)" title="Direct link to Stage 3: Compilation (Compiling to Bytecode)" translate="no">​</a></h3>
+<p>At this point, an extremely important step takes place: CPython is forced to translate the AST into an intermediate language called Bytecode (.pyc).</p>
 <ul>
 <li class="">
-<p><strong>Lưu ý</strong>: Python không chạy trực tiếp source code (.py) từng dòng một như nhiều người lầm tưởng.</p>
+<p><strong>Note</strong>: Python does not directly run the source code (.py) line by line as many people mistakenly believe.</p>
 </li>
 <li class="">
-<p>Nó luôn phải Compile sang Bytecode trước. Bytecode này không phải là Mã máy (Machine Code) để CPU chạy, mà là tập lệnh dành riêng cho máy ảo Python.</p>
+<p>It always has to Compile to Bytecode first. This Bytecode is not Machine Code for the CPU to run, but an instruction set specifically for the Python virtual machine.</p>
 </li>
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="giai-đoạn-4-python-virtual-machine-pvm">Giai đoạn 4: Python Virtual Machine (PVM)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#giai-%C4%91o%E1%BA%A1n-4-python-virtual-machine-pvm" class="hash-link" aria-label="Direct link to Giai đoạn 4: Python Virtual Machine (PVM)" title="Direct link to Giai đoạn 4: Python Virtual Machine (PVM)" translate="no">​</a></h3>
-<p>Đây là nơi chương trình thực sự chạy. PVM là một vòng lặp vô tận, hoạt động như một "CPU ảo".
-Với lệnh a = 10, mô hình bộ nhớ hoạt động khác hẳn với C/Java truyền thống:</p>
+<p>This is where the program actually runs. The PVM is an infinite loop that acts as a "virtual CPU".
+With the statement a = 10, the memory model operates entirely differently from traditional C/Java:</p>
 <ul>
 <li class="">
-<p>Heap Memory (Chứa Object): PVM tạo một object int có giá trị là 10 nằm trên Heap.</p>
+<p>Heap Memory (Contains Objects): The PVM creates an int object with a value of 10 located on the Heap.</p>
 </li>
 <li class="">
-<p>Stack Memory (Chứa Reference): PVM đẩy cái tên biến a (reference) vào Stack frame hiện tại và trỏ nó tới địa chỉ của object 10 bên Heap.</p>
+<p>Stack Memory (Contains References): The PVM pushes the variable name a (reference) onto the current Stack frame and points it to the address of the object 10 on the Heap.</p>
 </li>
 </ul>
-<p><strong>Khác biệt mấu chốt</strong>: Stack trong Python không chứa "giá trị" (value), nó chỉ chứa các tham chiếu. Mọi thứ trong Python (số, chuỗi, boolean...) đều là Object và nằm trên Heap.
-Sau cùng, PVM đọc từng dòng Bytecode, gọi các hàm C tương ứng để CPU thực thi.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-cách-cpython-quản-lý-bộ-nhớ">3. Cách CPython quản lý bộ nhớ?<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#3-c%C3%A1ch-cpython-qu%E1%BA%A3n-l%C3%BD-b%E1%BB%99-nh%E1%BB%9B" class="hash-link" aria-label="Direct link to 3. Cách CPython quản lý bộ nhớ?" title="Direct link to 3. Cách CPython quản lý bộ nhớ?" translate="no">​</a></h2>
-<p>CPython quản lí bộ nhớ cực kì tinh vi</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mọi-thứ-đều-là-object-pyobject">Mọi thứ đều là Object (PyObject)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#m%E1%BB%8Di-th%E1%BB%A9-%C4%91%E1%BB%81u-l%C3%A0-object-pyobject" class="hash-link" aria-label="Direct link to Mọi thứ đều là Object (PyObject)" title="Direct link to Mọi thứ đều là Object (PyObject)" translate="no">​</a></h3>
-<p>Trong CPython, số 10 không chỉ là 4 bytes nhị phân. Nó là một struct (cấu trúc) trong C tên là PyObject. Nó chứa rất nhiều metadata:</p>
+<p><strong>Key difference</strong>: The Stack in Python does not contain "values"; it only contains references. Everything in Python (numbers, strings, booleans...) is an Object and resides on the Heap.
+Finally, the PVM reads each line of Bytecode and calls the corresponding C functions for the CPU to execute.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-how-does-cpython-manage-memory">3. How does CPython manage memory?<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#3-how-does-cpython-manage-memory" class="hash-link" aria-label="Direct link to 3. How does CPython manage memory?" title="Direct link to 3. How does CPython manage memory?" translate="no">​</a></h2>
+<p>CPython manages memory extremely sophisticatedly.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="everything-is-an-object-pyobject">Everything is an Object (PyObject)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#everything-is-an-object-pyobject" class="hash-link" aria-label="Direct link to Everything is an Object (PyObject)" title="Direct link to Everything is an Object (PyObject)" translate="no">​</a></h3>
+<p>In CPython, the number 10 is not just 4 binary bytes. It is a C struct named PyObject. It contains a lot of metadata:</p>
 <ul>
-<li class="">Nó thuộc kiểu gì (int, str)?</li>
-<li class="">Có bao nhiêu người đang dùng nó (Reference Count)?</li>
+<li class="">What type is it (int, str)?</li>
+<li class="">How many references are currently using it (Reference Count)?</li>
 </ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="pymalloc--cơ-chế-cấp-phát">Pymalloc &amp; Cơ chế cấp phát<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#pymalloc--c%C6%A1-ch%E1%BA%BF-c%E1%BA%A5p-ph%C3%A1t" class="hash-link" aria-label="Direct link to Pymalloc &amp; Cơ chế cấp phát" title="Direct link to Pymalloc &amp; Cơ chế cấp phát" translate="no">​</a></h3>
-<p>CPython không gọi malloc (xin RAM từ OS) mỗi khi ta tạo một biến, vì việc đó rất chậm. Thay vào đó, nó dùng Pymalloc:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="pymalloc--allocation-mechanism">Pymalloc &amp; Allocation Mechanism<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#pymalloc--allocation-mechanism" class="hash-link" aria-label="Direct link to Pymalloc &amp; Allocation Mechanism" title="Direct link to Pymalloc &amp; Allocation Mechanism" translate="no">​</a></h3>
+<p>CPython does not call malloc (requesting RAM from the OS) every time we create a variable, because that is very slow. Instead, it uses Pymalloc:</p>
 <ul>
-<li class="">Nó xin sẵn những vùng đất lớn (Arenas).</li>
-<li class="">Chia nhỏ thành các hồ (Pools).</li>
-<li class="">Khi ta cần, nó "phát" ngay một mảnh nhỏ. Đây là lý do tạo object nhỏ trong Python rất nhanh.</li>
+<li class="">It pre-allocates large chunks of memory (Arenas).</li>
+<li class="">Subdivides them into pools (Pools).</li>
+<li class="">When we need it, it immediately "issues" a small block. This is why creating small objects in Python is very fast.</li>
 </ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="dọn-rác-garbage-collection">Dọn rác (Garbage Collection)<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#d%E1%BB%8Dn-r%C3%A1c-garbage-collection" class="hash-link" aria-label="Direct link to Dọn rác (Garbage Collection)" title="Direct link to Dọn rác (Garbage Collection)" translate="no">​</a></h3>
-<p>Làm sao Python biết khi nào xóa biến để giải phóng RAM?</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="garbage-collection">Garbage Collection<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#garbage-collection" class="hash-link" aria-label="Direct link to Garbage Collection" title="Direct link to Garbage Collection" translate="no">​</a></h3>
+<p>How does Python know when to delete a variable to free up RAM?</p>
 <ol>
 <li class="">
-<p><strong>Reference Counting (Chủ đạo)</strong>: Mỗi object có một bộ đếm. Cứ ai dùng biến thì đếm +1, không dùng nữa (hoặc dùng del) thì -1. Khi bộ đếm về 0, object bị xóa ngay lập tức.</p>
+<p><strong>Reference Counting (Primary)</strong>: Each object has a counter. Whenever a variable references it, the count is +1; when it's no longer used (or del is used), it's -1. When the counter reaches 0, the object is deleted immediately.</p>
 </li>
 <li class="">
-<p><strong>Generational Garbage Collection (Xử lý Cyclic Reference):</strong></p>
+<p><strong>Generational Garbage Collection (Handling Cyclic References):</strong></p>
 </li>
 </ol>
 <ul>
 <li class="">
-<p>Vấn đề: Nếu A trỏ tới B, và B trỏ ngược lại A (Vòng tham chiếu), thì Reference Count của cả hai không bao giờ về 0, dù ta không dùng chúng nữa. Đây là rò rỉ bộ nhớ.</p>
+<p>Problem: If A points to B, and B points back to A (Reference Cycle), the Reference Count of both will never reach 0, even if we no longer use them. This is a memory leak.</p>
 </li>
 <li class="">
-<p>Giải pháp: CPython sử dụng một bộ gom rác thế hệ (Generational GC). Nó định kỳ quét các object dạng "container" (list, dict, class...) để phát hiện các vòng tròn khép kín này và dọn dẹp chúng.</p>
+<p>Solution: CPython uses a Generational Garbage Collector. It periodically scans "container" objects (lists, dicts, classes...) to detect these closed cycles and clean them up.</p>
 </li>
 </ul>
 <hr>
 <h2></h2>
-<p>Các bạn có thể tham khảo qua slide dưới đây để hiểu sâu hơn về CPython:</p>
+<p>You can refer to the slide below for a deeper understanding of CPython:</p>
 <ul>
 <li class="">🔗 <a href="https://www.canva.com/design/DAG_3EC7Suw/1LjWwYMgO59FCa64VBrI3w/edit" target="_blank" rel="noopener noreferrer" class="">https://www.canva.com/design/DAG_3EC7Suw/1LjWwYMgO59FCa64VBrI3w/edit</a>
-(Slide sẽ mở ở tab mới để xem đầy đủ và rõ ràng hơn)</li>
+(The slide will open in a new tab for a fuller and clearer view)</li>
 </ul>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-kết-luận">4. Kết luận<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#4-k%E1%BA%BFt-lu%E1%BA%ADn" class="hash-link" aria-label="Direct link to 4. Kết luận" title="Direct link to 4. Kết luận" translate="no">​</a></h2>
-<p>Hành trình từ dòng code trên IDE đến khi OS thực thi là một chặng đường dài đi qua Lexer, Parser, Compiler và PVM. CPython không chỉ là một trình thông dịch, nó là một kiệt tác kỹ thuật kết hợp giữa sự linh hoạt của ngôn ngữ bậc cao và sự chặt chẽ của C.</p>
-<p>Hy vọng bài viết này giúp bạn có cái nhìn sâu sắc hơn về công cụ mình đang dùng hàng ngày. Đừng chỉ code, hãy hiểu code chạy như thế nào!</p>]]></content>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-conclusion">4. Conclusion<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2#4-conclusion" class="hash-link" aria-label="Direct link to 4. Conclusion" title="Direct link to 4. Conclusion" translate="no">​</a></h2>
+<p>The journey from a line of code in the IDE to when the OS executes it is a long path through the Lexer, Parser, Compiler, and PVM. CPython is not just an interpreter; it is an engineering masterpiece that combines the flexibility of a high-level language with the strictness of C.</p>
+<p>Hopefully, this article gives you a deeper insight into the tool you use every day. Don't just code; understand how the code runs!</p>]]></content>
         <author>
-            <name>Phạm Trọng Nghĩa</name>
+            <name>Pham Trong Nghia</name>
             <uri>https://github.com/trongnghia1811</uri>
         </author>
         <category label="Docusaurus" term="Docusaurus"/>
@@ -381,100 +109,66 @@ Sau cùng, PVM đọc từng dòng Bytecode, gọi các hàm C tương ứng đ�
         <category label="lap-trinh" term="lap-trinh"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Hướng dẫn tạo Blog cá nhân bằng Docusaurus]]></title>
+        <title type="html"><![CDATA[Guide to creating a personal blog using Docusaurus]]></title>
         <id>https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-dau-tien</id>
         <link href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-dau-tien"/>
         <updated>2026-01-22T16:33:26.000Z</updated>
-        <summary type="html"><![CDATA[Trong bài viết này, mình sẽ hướng dẫn chi tiết cách tạo một blog cá nhân bằng Docusaurus – một công cụ rất mạnh để xây dựng website tài liệu và blog tĩnh.]]></summary>
-        <content type="html"><![CDATA[<p>Trong bài viết này, mình sẽ hướng dẫn chi tiết cách tạo một blog cá nhân bằng <em>Docusaurus</em> – một công cụ rất mạnh để xây dựng website tài liệu và blog tĩnh.</p>
-<p>Bài viết phù hợp cho:</p>
+        <summary type="html"><![CDATA[In this article, I will guide you in detail on how to create a personal blog using Docusaurus – a very powerful tool for building static documentation websites and blogs.]]></summary>
+        <content type="html"><![CDATA[<p>In this article, I will guide you in detail on how to create a personal blog using <em>Docusaurus</em> – a very powerful tool for building static documentation websites and blogs.</p>
+<p>This article is suitable for:</p>
 <ul>
-<li class="">Sinh viên IT</li>
-<li class="">Người mới học web</li>
-<li class="">Người muốn có blog cá nhân chuyên nghiệp</li>
+<li class="">IT students</li>
+<li class="">Web beginners</li>
+<li class="">People who want a professional personal blog</li>
 </ul>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-docusaurus-là-gì">1. Docusaurus là gì?<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-dau-tien#1-docusaurus-l%C3%A0-g%C3%AC" class="hash-link" aria-label="Direct link to 1. Docusaurus là gì?" title="Direct link to 1. Docusaurus là gì?" translate="no">​</a></h2>
-<p>Docusaurus là một framework mã nguồn mở do Facebook phát triển, dùng để tạo:</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-what-is-docusaurus">1. What is Docusaurus?<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-dau-tien#1-what-is-docusaurus" class="hash-link" aria-label="Direct link to 1. What is Docusaurus?" title="Direct link to 1. What is Docusaurus?" translate="no">​</a></h2>
+<p>Docusaurus is an open-source framework developed by Facebook, used to create:</p>
 <ul>
-<li class="">Blog cá nhân</li>
-<li class="">Website tài liệu</li>
-<li class="">Website giới thiệu dự án</li>
+<li class="">Personal blogs</li>
+<li class="">Documentation websites</li>
+<li class="">Project introduction websites</li>
 </ul>
-<p>Ưu điểm:</p>
+<p>Advantages:</p>
 <ul>
-<li class="">Miễn phí</li>
-<li class="">Dễ dùng</li>
-<li class="">Viết bài bằng Markdown</li>
-<li class="">Deploy dễ lên GitHub Pages</li>
+<li class="">Free</li>
+<li class="">Easy to use</li>
+<li class="">Write posts in Markdown</li>
+<li class="">Easy to deploy to GitHub Pages</li>
 </ul>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-chuẩn-bị-môi-trường">2. Chuẩn bị môi trường<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-dau-tien#2-chu%E1%BA%A9n-b%E1%BB%8B-m%C3%B4i-tr%C6%B0%E1%BB%9Dng" class="hash-link" aria-label="Direct link to 2. Chuẩn bị môi trường" title="Direct link to 2. Chuẩn bị môi trường" translate="no">​</a></h2>
-<p>Bạn cần cài sẵn:</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-environment-preparation">2. Environment preparation<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-dau-tien#2-environment-preparation" class="hash-link" aria-label="Direct link to 2. Environment preparation" title="Direct link to 2. Environment preparation" translate="no">​</a></h2>
+<p>You need to have installed:</p>
 <ul>
-<li class="">Node.js (phiên bản &gt;= 18)</li>
-<li class="">npm (đi kèm Node.js)</li>
+<li class="">Node.js (version &gt;= 18)</li>
+<li class="">npm (comes with Node.js)</li>
 </ul>
-<p>Kiểm tra bằng lệnh:</p>
+<p>Check with the commands:</p>
 <p>node -v
 npm -v</p>
 <hr>
 <h2></h2>
-<p>Slide dưới đây mô tả toàn bộ quy trình xây dựng website,
-từ bước khởi tạo project cho đến khi deploy (triển khai) website lên GitHub Pages.</p>
-<p>Xem slide hướng dẫn chi tiết tại đây:</p>
-<ul>
-<li class="">🔗 <a href="https://www.canva.com/design/DAG-x-HN2J0/AXmxIe_VDDip6aalEPP8PQ/view" target="_blank" rel="noopener noreferrer" class="">https://www.canva.com/design/DAG-x-HN2J0/AXmxIe_VDDip6aalEPP8PQ/view</a></li>
-</ul>
-<p>(Slide sẽ mở ở tab mới để xem đầy đủ và rõ ràng hơn)</p>
+<p>The slide below describes the entire website building process, from initializing the project to deploying the website to GitHub Pages.</p>
+<p>View the detailed guide slide here:</p>
+<p>🔗 <a href="https://www.canva.com/design/DAG-x-HN2J0/AXmxIe_VDDip6aalEPP8PQ/view" target="_blank" rel="noopener noreferrer" class="">https://www.canva.com/design/DAG-x-HN2J0/AXmxIe_VDDip6aalEPP8PQ/view</a></p>
+<p>(The slide will open in a new tab for a fuller and clearer view)</p>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-kết-luận">4. Kết luận<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-dau-tien#4-k%E1%BA%BFt-lu%E1%BA%ADn" class="hash-link" aria-label="Direct link to 4. Kết luận" title="Direct link to 4. Kết luận" translate="no">​</a></h2>
-<p>Sau khi xem slide, người mới có thể:</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-conclusion">4. Conclusion<a href="https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-dau-tien#4-conclusion" class="hash-link" aria-label="Direct link to 4. Conclusion" title="Direct link to 4. Conclusion" translate="no">​</a></h2>
+<p>After viewing the slide, beginners can:</p>
 <ul>
-<li class="">Tạo project Docusaurus</li>
-<li class="">Viết bài blog</li>
-<li class="">Đẩy source code lên GitHub</li>
-<li class="">Deploy website bằng GitHub Pages</li>
+<li class="">Create a Docusaurus project</li>
+<li class="">Write a blog post</li>
+<li class="">Push source code to GitHub</li>
+<li class="">Deploy the website using GitHub Pages</li>
 </ul>
 <hr>]]></content>
         <author>
-            <name>Phạm Trọng Nghĩa</name>
+            <name>Pham Trong Nghia</name>
             <uri>https://github.com/trongnghia1811</uri>
         </author>
         <category label="Docusaurus" term="Docusaurus"/>
         <category label="blog" term="blog"/>
         <category label="huong-dan" term="huong-dan"/>
         <category label="lap-trinh" term="lap-trinh"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Welcome]]></title>
-        <id>https://trongnghia1811.github.io/my-docusaurus/blog/welcome</id>
-        <link href="https://trongnghia1811.github.io/my-docusaurus/blog/welcome"/>
-        <updated>2021-08-26T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Docusaurus blogging features are powered by the blog plugin.]]></summary>
-        <content type="html"><![CDATA[<p><a href="https://docusaurus.io/docs/blog" target="_blank" rel="noopener noreferrer" class="">Docusaurus blogging features</a> are powered by the <a href="https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog" target="_blank" rel="noopener noreferrer" class="">blog plugin</a>.</p>
-<p>Here are a few tips you might find useful.</p>
-<p>Simply add Markdown files (or folders) to the <code>blog</code> directory.</p>
-<p>Regular blog authors can be added to <code>authors.yml</code>.</p>
-<p>The blog post date can be extracted from filenames, such as:</p>
-<ul>
-<li class=""><code>2019-05-30-welcome.md</code></li>
-<li class=""><code>2019-05-30-welcome/index.md</code></li>
-</ul>
-<p>A blog post folder can be convenient to co-locate blog post images:</p>
-<p><img decoding="async" loading="lazy" alt="Docusaurus Plushie" src="https://trongnghia1811.github.io/my-docusaurus/assets/images/docusaurus-plushie-banner-a60f7593abca1e3eef26a9afa244e4fb.jpeg" width="1500" height="500" class="img_ev3q"></p>
-<p>The blog supports tags as well!</p>
-<p><strong>And if you don't want a blog</strong>: just delete this directory, and use <code>blog: false</code> in your Docusaurus config.</p>]]></content>
-        <author>
-            <name>Sébastien Lorber</name>
-            <uri>https://sebastienlorber.com</uri>
-        </author>
-        <author>
-            <name>Yangshun Tay</name>
-            <uri>https://linkedin.com/in/yangshun</uri>
-        </author>
-        <category label="Facebook" term="Facebook"/>
-        <category label="Hello" term="Hello"/>
-        <category label="Docusaurus" term="Docusaurus"/>
     </entry>
 </feed>
