@@ -4,10 +4,16 @@
         <title>Nghia's Blog Blog</title>
         <link>https://trongnghia1811.github.io/my-docusaurus/blog</link>
         <description>Nghia's Blog Blog</description>
-        <lastBuildDate>Mon, 02 Feb 2026 11:20:01 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 24 Mar 2026 07:11:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[FCAJ1]]></title>
+            <link>https://trongnghia1811.github.io/my-docusaurus/blog/FCAJ1</link>
+            <guid>https://trongnghia1811.github.io/my-docusaurus/blog/FCAJ1</guid>
+            <pubDate>Tue, 24 Mar 2026 07:11:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[What is CPython?]]></title>
             <link>https://trongnghia1811.github.io/my-docusaurus/blog/bai-viet-thu-2</link>
