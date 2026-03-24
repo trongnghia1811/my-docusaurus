@@ -9,10 +9,94 @@
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <item>
-            <title><![CDATA[FCAJ1]]></title>
-            <link>https://trongnghia1811.github.io/my-docusaurus/blog/FCAJ1</link>
-            <guid>https://trongnghia1811.github.io/my-docusaurus/blog/FCAJ1</guid>
+            <title><![CDATA[Review First Cloud AI Journey "Know before you join First Cloud AI Journey"]]></title>
+            <link>https://trongnghia1811.github.io/my-docusaurus/blog/review-FCAJ-1</link>
+            <guid>https://trongnghia1811.github.io/my-docusaurus/blog/review-FCAJ-1</guid>
             <pubDate>Tue, 24 Mar 2026 07:11:00 GMT</pubDate>
+            <description><![CDATA[Hi everyone, welcome back to Nghia's Blog! If you're pursuing a career in Computer Science, especially if you're interested in Cloud Computing and DevOps, then you definitely can't miss the AWS ecosystem. Recently, I participated in the AWS Study Group's First Cloud AI Journey (FCAJ) program. This program is like a "roadmap" for newcomers to the world of cloud computing. Below is what I learned about the program from the first FCAJ video.]]></description>
+            <content:encoded><![CDATA[<p>Hi everyone, welcome back to <strong>Nghia's Blog</strong>! If you're pursuing a career in Computer Science, especially if you're interested in Cloud Computing and DevOps, then you definitely can't miss the AWS ecosystem. Recently, I participated in the AWS Study Group's First Cloud AI Journey (FCAJ) program. This program is like a "roadmap" for newcomers to the world of cloud computing. Below is what I learned about the program from the first FCAJ video.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-what-is-first-cloud-ai-journey-fcaj">1. What is First Cloud AI Journey (FCAJ)?<a href="https://trongnghia1811.github.io/my-docusaurus/blog/review-FCAJ-1#1-what-is-first-cloud-ai-journey-fcaj" class="hash-link" aria-label="Direct link to 1. What is First Cloud AI Journey (FCAJ)?" title="Direct link to 1. What is First Cloud AI Journey (FCAJ)?" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>This is a community of people learning and working with AWS, where members support each other and share knowledge in a non-toxic environment.</p>
+</li>
+<li class="">
+<p>Vision: Not just for certification exams, but for long-term career support, helping members become future tech leaders and inspire the next generation.</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-six-core-principles-of-the-program">2. Six core principles of the program:<a href="https://trongnghia1811.github.io/my-docusaurus/blog/review-FCAJ-1#2-six-core-principles-of-the-program" class="hash-link" aria-label="Direct link to 2. Six core principles of the program:" title="Direct link to 2. Six core principles of the program:" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p><strong>Builder and Troubleshooter Spirit</strong>: Ability to independently build products to solve real-world problems and independently troubleshoot when systems encounter issues.</p>
+</li>
+<li class="">
+<p><strong>Teamwork</strong>: An extremely important skill in an era of constantly changing technology; the program encourages group registration and learning.</p>
+</li>
+<li class="">
+<p><strong>Resilience</strong>: Perseverance and mutual support to meet the ever-increasing expectations of businesses, especially with the advent of AI.</p>
+</li>
+<li class="">
+<p><strong>Hands-on and Knowledge Sharing</strong>: Qualifications must go hand in hand with practical skills. Skills are proven through practice and confidently sharing knowledge with the community.</p>
+</li>
+<li class="">
+<p><strong>Investing in Yourself</strong>: Don't hesitate to invest time and money in learning and practicing.</p>
+</li>
+<li class="">
+<p><strong>Lifelong Learning</strong>: A continuous learning journey (the program sets a 6-month target to motivate participants, but each person may have their own pace).</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-practice-and-projects">3. Practice and Projects:<a href="https://trongnghia1811.github.io/my-docusaurus/blog/review-FCAJ-1#3-practice-and-projects" class="hash-link" aria-label="Direct link to 3. Practice and Projects:" title="Direct link to 3. Practice and Projects:" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>Practical exercises are designed for students to start from scratch, rather than simply following pre-written instructions, fostering a deep understanding of how to apply the knowledge in practice.</p>
+</li>
+<li class="">
+<p>Graduation requirement: Complete 5 projects.</p>
+</li>
+<li class="">
+<p>The projects don't need to be massive; what matters is their accuracy, solving a business problem, and that you feel proud enough to include them on your CV or LinkedIn profile.</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-benefits-of-participation">4. Benefits of participation:<a href="https://trongnghia1811.github.io/my-docusaurus/blog/review-FCAJ-1#4-benefits-of-participation" class="hash-link" aria-label="Direct link to 4. Benefits of participation:" title="Direct link to 4. Benefits of participation:" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>Participate in events and meetups organized by FCAJ in collaboration with universities, AWS partners, and IT companies (in Hanoi, Ho Chi Minh City, and Da Nang).</p>
+</li>
+<li class="">
+<p>Opportunities to present and share knowledge, thereby building your personal brand and potentially using it as a profile for the AWS Community Builder position.</p>
+</li>
+<li class="">
+<p>Receive support from a community of over 50,000 members (primarily through WhatsApp).</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-what-do-i-need-to-prepare-before-starting-checklist">5. What do I need to prepare before starting? (Checklist):<a href="https://trongnghia1811.github.io/my-docusaurus/blog/review-FCAJ-1#5-what-do-i-need-to-prepare-before-starting-checklist" class="hash-link" aria-label="Direct link to 5. What do I need to prepare before starting? (Checklist):" title="Direct link to 5. What do I need to prepare before starting? (Checklist):" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>A personal AWS account.</p>
+</li>
+<li class="">
+<p>AWS Builder Profile account (to access more in-depth practice exercises).</p>
+</li>
+<li class="">
+<p>WhatsApp account for communication and support.</p>
+</li>
+<li class="">
+<p>A professional LinkedIn profile to update your learning progress and completed projects.</p>
+</li>
+<li class="">
+<p>Join community channels: AWS Study Group Facebook/LinkedIn group, WordPress blog, and two YouTube channels (one theoretical, one practical).</p>
+</li>
+</ul>
+<hr>
+<h2></h2>
+<p>Watch the video below to learn about FCAJ:</p>
+<ul>
+<li class="">🔗 <a href="https://www.youtube.com/watch?v=Gz56QzLQ_Yo&amp;list=PLahN4TLWtox3TSYFbN1DNX7NZgTVXNj3x" target="_blank" rel="noopener noreferrer" class="">https://www.youtube.com/watch?v=Gz56QzLQ_Yo&amp;list=PLahN4TLWtox3TSYFbN1DNX7NZgTVXNj3x</a></li>
+</ul>
+<hr>]]></content:encoded>
+            <category>AWS</category>
+            <category>FCAJ</category>
+            <category>blog</category>
         </item>
         <item>
             <title><![CDATA[What is CPython?]]></title>
