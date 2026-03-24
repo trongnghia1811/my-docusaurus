@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_blog=globalThis.webpackChunkmy_blog||[]).push([[1029],{4328(s){s.exports=JSON.parse('{"blogBasePath":"/my-docusaurus/aws","blogTitle":"First Cloud AI Journey","authorsListPath":"/my-docusaurus/aws/authors"}')}}]);

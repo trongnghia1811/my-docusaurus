@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_blog=globalThis.webpackChunkmy_blog||[]).push([[2724],{4019(a){a.exports=JSON.parse('{"tags":[{"label":"AWS","permalink":"/my-docusaurus/aws/tags/aws","count":5},{"label":"FCAJ","permalink":"/my-docusaurus/aws/tags/fcaj","count":5},{"label":"blog","permalink":"/my-docusaurus/aws/tags/blog","count":5}]}')}}]);

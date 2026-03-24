@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_blog=globalThis.webpackChunkmy_blog||[]).push([[1517],{2331(a){a.exports=JSON.parse('{"metadata":{"permalink":"/my-docusaurus/aws","page":1,"postsPerPage":10,"totalPages":1,"totalCount":5,"blogDescription":"Blog","blogTitle":"First Cloud AI Journey"}}')}}]);
